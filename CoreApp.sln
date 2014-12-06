@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "Database
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Deployment", "_Deployment", "{6C538774-FE2A-46A8-BB5C-F406AA4130ED}"
+	ProjectSection(SolutionItems) = preProject
+		CoreAppAddressComponentDeploymentSteps.docx = CoreAppAddressComponentDeploymentSteps.docx
+		CoreAppAddressComponentDesignConsiderations.docx = CoreAppAddressComponentDesignConsiderations.docx
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SmokeTest", "SmokeTest", "{88546D50-1381-43D1-8C1C-8277E5A310FE}"
 EndProject

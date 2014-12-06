@@ -98,8 +98,8 @@ namespace DataAccess
         {
             var server = ConfigurationManager.AppSettings["DataSource"];
             var db =   ConfigurationManager.AppSettings["DatabaseName"];
-            const string sqlUser = "appcore_user";
-            const string sqlPw = "appcore1234";
+            const string sqlUser ="test1234" ;//"appcore_user";
+            const string sqlPw = "test1234";//"appcore1234";
 
             return string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password={3}",
                 server,
