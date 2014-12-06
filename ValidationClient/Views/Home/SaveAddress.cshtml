@@ -1,0 +1,66 @@
+﻿@model ValidationClient.Models.HomeModel
+
+@{
+    ViewBag.Title = "SaveAddress";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Validate Concrete Implementation of Address Component</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<h3>Create/Save Address Data:</h3>
+@if (Model != null && !string.IsNullOrEmpty(Model.Message))
+{
+    <div>@Model.Message</div>
+}
+<div>
+    @{
+        using (Html.BeginForm("AddressResult", "Home", FormMethod.Post))
+        {
+            <table>
+                <tr>
+                    <td style="width: 50%">Address ID <input type="hidden" name="addressId" value="@Model.SelectedAddress.AddressId" /></td>
+                    <td style="width: 50%">@Model.SelectedAddress.AddressId</td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td><input type="text" name="Name" value="@Model.SelectedAddress.Name" /></td>
+                </tr>
+                <tr>
+                    <td>Company:</td>
+                    <td><input type="text" name="Company" value="@Model.SelectedAddress.Company" /></td>
+                </tr>
+                <tr>
+                    <td>Address 1:</td>
+                    <td><input type="text" name="Add1" value="@Model.SelectedAddress.AddressLine1" /></td>
+                </tr>
+                <tr>
+                    <td>Address 2:</td>
+                    <td><input type="text" name="Add2" value="@Model.SelectedAddress.AddressLine2" /></td>
+                </tr>
+                <tr>
+                    <td>City:</td>
+                    <td><input type="text" name="City" value="@Model.SelectedAddress.City" /></td>
+                </tr>
+                <tr>
+                    <td>State Id:</td>
+                    <td><input type="text" name="StateId" value="@Model.SelectedAddress.State.Id" /></td>
+                </tr>
+                <tr>
+                    <td>Zip:</td>
+                    <td><input type="text" name="Zip" value="@Model.SelectedAddress.Zip" /></td>
+                </tr>
+                <tr><td colspan="2"></td></tr>
+            </table>
+            <input type="submit" value="Save" />
+
+        }
+    }
+</div>

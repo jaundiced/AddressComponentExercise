@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+
+@model ValidationClient.Models.HomeModel
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>Validate Concrete Implementation of Address Component</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<h3>Load Saved Address Data:</h3>
+
+<div>
+    @{
+        using (Html.BeginForm("IndexResult", "Home", FormMethod.Post))
+        {
+            <select id="addressIdSelect" name="addressIdSelect" data-role="none">
+                <option value="0" selected disabled="disabled"> Ids</option>
+                <option value="0" disabled="disabled"> --------------------</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <input type="submit" value="Get" />
+
+        }
+    }
+</div>
+
+<div>
+    @Html.ActionLink("Create New address", "Address", "Home", routeValues: null , htmlAttributes: null)
+</div>
+<div>
+    <table>
+        <tr>
+            <td style="width: 50%">Address ID</td>
+            <td style="width: 50%">@Model.SelectedAddress.AddressId</td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td>@Model.SelectedAddress.Name</td>
+        </tr>
+        <tr>
+            <td>Company:</td>
+            <td>@Model.SelectedAddress.Company</td>
+        </tr>
+        <tr>
+            <td>Address 1:</td>
+            <td>@Model.SelectedAddress.AddressLine1</td>
+        </tr>
+        <tr>
+            <td>Address 2:</td>
+            <td>@Model.SelectedAddress.AddressLine2</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>@Model.SelectedAddress.City</td>
+        </tr>
+        <tr>
+            <td>State Id:</td>
+            <td>@Model.SelectedAddress.State.Id</td>
+        </tr>
+        <tr>
+            <td>Zip:</td>
+            <td>@Model.SelectedAddress.Zip</td>
+        </tr>
+        @if (Model != null && Model.SelectedAddress.AddressId > 0)
+        {
+            <tr><td colspan="2">@Html.ActionLink("Edit this address", "Address", "Home", new { id = @Model.SelectedAddress.AddressId }, null)</td></tr>
+        }
+    </table>
+</div>
+
